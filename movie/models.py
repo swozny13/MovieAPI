@@ -29,8 +29,8 @@ class Tag(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=120, null=True, blank=True)
-    genres = models.ManyToManyField(Genre, null=True, blank=True)
-    ratings = models.ManyToManyField(Rating, null=True, blank=True)
+    genres = models.ManyToManyField(Genre, blank=True)
+    ratings = models.ManyToManyField(Rating, blank=True)
     year = models.CharField(max_length=5, null=True, blank=True)
     link = models.CharField(max_length=120, null=True, blank=True)
 
