@@ -3,7 +3,7 @@ from unittest import TestCase
 
 from django.contrib.auth.models import User
 
-from movie.models import Genre, Rating
+from movie.models import Genre, Rating, Tag
 
 
 class GenreTest(TestCase):
@@ -45,3 +45,24 @@ class RatingTest(TestCase):
 
     def test_rating_instance(self):
         self.assertTrue(isinstance(self.rating, Rating))
+
+
+class TagTest(TestCase):
+
+    def setUp(self):
+        print("Setup objects for tag model")
+        self.user = User.objects.create(
+            username='user_test',
+            email='user@test.com'
+        )
+        self.tag = Tag.objects.create(
+            user=self.user,
+            name='great book'
+        )
+
+    def tearDown(self):
+        print("Remove tag objects")
+        self.tag.delete()
+
+    def test_tag_instance(self):
+        self.assertTrue(isinstance(self.tag, Tag))
