@@ -1,6 +1,9 @@
+import datetime
 from unittest import TestCase
 
-from movie.models import Genre
+from django.contrib.auth.models import User
+
+from movie.models import Genre, Rating
 
 
 class GenreTest(TestCase):
@@ -11,9 +14,34 @@ class GenreTest(TestCase):
         self.another_genre = Genre.objects.create(name='Crime')
 
     def tearDown(self):
-        print("Remove objects")
+        print("Remove genres objects")
         self.genre.delete()
         self.another_genre.delete()
 
     def test_genre_instance(self):
         self.assertTrue(isinstance(self.genre, Genre))
+
+
+class RatingTest(TestCase):
+
+    def setUp(self):
+        print("Setup objects for rating model")
+        self.user = User.objects.create(
+            username='user_test',
+            email='user@test.com'
+        )
+        self.date = datetime.datetime.now()
+        self.rating = Rating.objects.create(
+            user=self.user,
+            rate='5.0',
+            movie_id='1',
+            date=self.date
+        )
+
+    def tearDown(self):
+        print("Remove ratings objects")
+        self.rating.delete()
+        self.user.delete()
+
+    def test_rating_instance(self):
+        self.assertTrue(isinstance(self.rating, Rating))
