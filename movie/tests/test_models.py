@@ -57,7 +57,8 @@ class TagTest(TestCase):
         )
         self.tag = Tag.objects.create(
             user=self.user,
-            name='great book'
+            name='great book',
+            movie_id='1'
         )
 
     def tearDown(self):
@@ -88,7 +89,8 @@ class MovieTest(TestCase):
         )
         self.tag = Tag.objects.create(
             user=self.user,
-            name='great movie'
+            name='great movie',
+            movie_id='1'
         )
         self.movie = Movie.objects.create(
             title='King Lion',
@@ -98,6 +100,7 @@ class MovieTest(TestCase):
         self.movie.genres.add(self.genre)
         self.movie.genres.add(self.another_genre)
         self.movie.ratings.add(self.rating)
+        self.movie.tag.add(self.tag)
 
     def tearDown(self):
         print("Remove movie objects")

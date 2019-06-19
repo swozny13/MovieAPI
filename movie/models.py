@@ -22,6 +22,7 @@ class Rating(models.Model):
 class Tag(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, null=True, blank=True)
+    movie_id = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -31,6 +32,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=120, null=True, blank=True)
     genres = models.ManyToManyField(Genre, blank=True)
     ratings = models.ManyToManyField(Rating, blank=True)
+    tag = models.ManyToManyField(Tag, blank=True)
     year = models.CharField(max_length=5, null=True, blank=True)
     link = models.CharField(max_length=120, null=True, blank=True)
 
