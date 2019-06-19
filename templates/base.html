@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Movie REST API</title>
+
+    <link href="{% static 'css/vendor/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Font-Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+          integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Books Manager</a>
+</nav>
+
+
+
+<div class="container" style="margin-bottom: 100px">
+    {% block content %}
+
+
+    {% endblock %}
+</div>
+
+<nav class="navbar fixed-bottom navbar-dark bg-dark">
+    <div style="text-align: center; flex: auto">
+        <a class="navbar-brand mr-sm-2" href="https://www.github.com/swozny13">github</a>
+        <a class="navbar-brand" href="https://www.linkedin.com/in/sebastian-wo%C5%BAniak-9b0b88144/">linkedin</a>
+    </div>
+</nav>
+
+<script src="{% static 'js/vendor/jquery.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
